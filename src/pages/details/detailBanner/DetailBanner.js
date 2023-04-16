@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 import { PlayIcon } from "../Playbtn";
-import VideoPopup from "../../../components/vedioPopup/videopopup";
+import VideoPopup from "../../../components/vedioPopup/Videopopup";
 import "./Style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../../hooks/useFetch";
