@@ -6,7 +6,7 @@ import { PlayIcon } from "../Playbtn";
 import VideoPopup from "../../../components/vedioPopup/Videopopup";
 import "./Style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
-import useFetch from "../../../hooks/useFetch";
+import useFetch from "../../../hooks/UseFetch";
 import Genres from "../../../components/geners/Geners";
 import CircleRating from "../../../components/circleRatting/CircleRating";
 import Img from "../../../components/lazyLoadImage/Img";

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./App.scss"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { fetchDataFromApi } from "./Utils/Api";
-import { getApiConfiguration } from "./store/HomeSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { getApiConfiguration , getGenres } from "./store/HomeSlice";
 import Header from "./components/header/Header"
