@@ -3,7 +3,7 @@ import "./Style.scss";
 import useFetch from '../../hooks/UseFetch';
 import { useParams } from 'react-router-dom';
 import DetailsBanner from './detailBanner/DetailBanner';
-import Similar from './carousels/similar';
+import Similar from './carousels/Similar';
 import Recommendation from './carousels/Recomendation';
 import Cast from './cast/Cast';
 import VideosSection from "./videosSection/VideoSection"
