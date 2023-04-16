@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import "./style.scss"
+import "./Style.scss"
 import useFetch from '../../../hooks/UseFetch';
 import { useEffect } from "react";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
