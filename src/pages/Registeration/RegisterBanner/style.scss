@@ -1,0 +1,62 @@
+@import "../.././../mixins.scss";
+
+.RegisterBanner {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    @include md {
+        height: 700px;
+    }
+    .backgroundImgCont {
+        background-image: radial-gradient(93.75% 105.88% at 0.39% 99.26%, rgba(150, 1, 7, 0.4) 1.42%, rgba(30, 1, 66, 0.51) 53.8%, rgba(13, 14, 32, 0) 100%), linear-gradient(98.24deg, #1D0005 14.75%, rgba(0, 8, 29, 0.48) 100%);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        overflow: hidden;
+        z-index: -1;
+        .lazy-load-image-background {
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+    }
+    
+    .opacity-layer {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(180deg,
+                rgba(4, 21, 45, 0) 0%,
+                #04152d 79.17%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .titleRegisterationPg {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 1.5rem;
+        color: #fff;
+
+        @include md {
+            font-size: 2.5rem;
+        }
+    }
+}

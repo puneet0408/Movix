@@ -1,0 +1,115 @@
+@import "../../mixins.scss";
+
+.auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 2rem;
+    padding: 10px;
+
+    
+
+    .authcontainer {
+        border-radius: 20%;
+        background-color: #000;
+        width: 70%;
+        height: auto;
+        position: relative;
+        bottom: 0;
+
+        @include sm {
+            width: 50%;
+        }
+
+        @include md {
+            width: 40%;
+        }
+
+        .authBody {
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0;
+            padding: 20px 0 30px;
+            width: 100%;
+
+
+            .authBodySwapButton {
+                width: 80%;
+                display: flex;
+                justify-content: space-between;
+
+                button {
+                    width: 30%;
+                    color: #fff;
+                    background-color: red;
+                    border: 1px solid red;
+                    border-radius: 20px;
+                    padding: 10px 10px;
+                    cursor: pointer;
+                }
+
+            }
+
+            .mainheading {
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 1rem;
+                @include sm {
+                    font-size: 2rem;
+                }
+        
+            }
+            .withgoogle {
+                cursor: pointer;
+                width: 100%;
+                flex-direction: row;
+                font-size: 1rem;
+
+                .googleLogo {
+                    color: green;
+                }
+                @include sm {
+                    font-size: 1.5rem;
+                }
+                @include md {
+                    font-size: 2rem;
+                }
+            }
+
+            .my-form-control {
+                background-color: #333;
+                border: 0;
+                border-radius: 4px;
+                color: #fff;
+                height: 50px;
+                line-height: 50px;
+                padding: 16px 20px 0;
+                width: 100%;
+                margin: 1.5rem 0;
+            }
+.error{
+    color:red;
+    font-size: 1rem;
+}
+            .custom-button {
+                height: 3rem;
+                width: 100%;
+                border-radius: 4px;
+                font-size: 16px;
+                font-weight: 500;
+                margin: 24px 0 12px;
+                background-color: red;
+                color: #fff;
+            }
+        }
+    }
+
+
+}

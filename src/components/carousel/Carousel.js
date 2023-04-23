@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
     BsFillArrowLeftCircleFill,
     BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import CircleRating from "../circleRatting/CircleRating"
+//import Favourite from "../favourite/Favourite";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
@@ -16,6 +17,8 @@ import "./style.scss";
 const Carousel = ({ data, loading, endpoint, title }) => {
     const carouselContainer = useRef();
     const { url } = useSelector((state) => state.home);
+ 
+
     const navigate = useNavigate();
 
     const navigation = (dir) => {
@@ -43,7 +46,6 @@ const Carousel = ({ data, loading, endpoint, title }) => {
             </div>
         );
     };
-
     return (
         <div className="carousel">
             <ContentWrapper>
@@ -62,6 +64,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                             const posterUrl = item.poster_path
                                 ? url.poster + item.poster_path
                                 : PosterFallback;
+
                             return (
                                 <div
                                     key={item.id}
@@ -75,14 +78,16 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                                 >
                                     <div className="posterBlock">
                                         <Img src={posterUrl} />
-                                        <CircleRating
-                                            rating={item.vote_average.toFixed(
-                                                1
-                                            )}
-                                        />
-                                        <Genres
-                                            data={item.genre_ids.slice(0, 2)}
-                                        />
+                                        
+                                        
+                                            <CircleRating
+                                                rating={item.vote_average.toFixed(
+                                                    1
+                                                )}
+                                            />
+                                            <Genres
+                                                data={item.genre_ids.slice(0, 2)}
+                                            />
                                     </div>
                                     <div className="textBlock">
                                         <span className="title">
@@ -111,5 +116,4 @@ const Carousel = ({ data, loading, endpoint, title }) => {
         </div>
     );
 };
-
 export default Carousel;

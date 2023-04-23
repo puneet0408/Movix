@@ -57,7 +57,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             <CircleRating rating={data?.vote_average?.toFixed(1)} />
                                             <div className="playbtn" onClick={() => {
                                                 setShow(true);
-                                                setVideoId(video.key);
+                                                setVideoId(video?.key);
                                             }}
                                             >
                                                 <PlayIcon />

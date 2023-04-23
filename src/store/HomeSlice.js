@@ -4,7 +4,7 @@ const initialState = {
     genres: {}
 }
 export const homeSlice = createSlice({
-    name: 'counter',
+    name : "counter",
     initialState,
     reducers: {
         getApiConfiguration: (state, action) => {
