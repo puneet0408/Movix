@@ -59,7 +59,7 @@ function Login() {
                             </span>
                             <BsGoogle className='googleLogo' size={22} />
                         </div>
-                        <form onSubmit={(e) => e.preventDefault()}>
+                        <form  onSubmit={(e) => e.preventDefault()}>
                             <div className="form_group">
                                 <input
                                     type="email"
