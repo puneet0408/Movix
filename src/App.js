@@ -12,7 +12,7 @@ import Details from "./pages/details/Detail";
 import Explore from "./pages/explore/Explore";
 import PageNotFound from "./pages/404/PageNotFound";
 import { User, Logout } from "./store/UserAuth";
-import { auth } from "./firebase/firebase";
+import { auth } from "./firebase/Firebase";
 import { onAuthStateChanged } from 'firebase/auth';
 import Registeration from "./pages/Registeration/registeration";
 
