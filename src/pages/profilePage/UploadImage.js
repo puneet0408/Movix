@@ -3,7 +3,7 @@ import { storage } from "../../firebase/Firebase"
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import { editProfile } from '../../firebase/FireStoreApi';
 
-export const   UploadImg = (image, id) => {
+export const   UploadImage = (image, id) => {
     const imageRef = ref(storage, `profileImages/${image.name}`);
     const uploadTask = uploadBytesResumable(imageRef, image)
     uploadTask.on(

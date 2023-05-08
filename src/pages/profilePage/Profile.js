@@ -4,8 +4,8 @@ import { getCurrentUser } from '../../firebase/FireStoreApi';
 import EditProfile from './EditProfile';
 import { HiOutlinePencil } from "react-icons/hi";
 import { getCurrentUser } from '../../firebase/FireStoreApi';
-import {UploadImg} from "./UploadImage"
-import { UploadBackgroundImg } from "./UploadBgImg"
+import {UploadImage} from "./UploadImage"
+import { UploadBgImg } from "./UploadBgImg"
 import Img from "../../components/lazyLoadImage/Img"
 import LogoutBtn from "../../pages/LogoutBtn";
 import './style.scss'
@@ -26,7 +26,7 @@ function Profile() {
     const AddProfileimage = (e) => {
         if (e.target.files[0]) {
             setImgs(e.target.files[0]);
-            UploadImg(e.target.files[0], currentuser?.id)
+            UploadImage(e.target.files[0], currentuser?.id)
         }
     };
 
@@ -34,7 +34,7 @@ function Profile() {
     const Addbgimage = (e) => {
         if (e.target.files[0]) {
             setBackgroundImg(e.target.files[0]);
-            UploadBackgroundImg(e.target.files[0], currentuser?.id)
+            UploadBgImg(e.target.files[0], currentuser?.id)
         }
     };
 
