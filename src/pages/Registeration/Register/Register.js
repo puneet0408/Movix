@@ -4,7 +4,7 @@ import { auth } from "../../../firebase/Firebase"
 //import {collection ,addDoc} from "firebase/firestore"
 import { createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper"
-//import { postUserData } from '../../../firebase/FireStoreApi';
+import { postUserData } from '../../../firebase/FireStoreApi';
 const provider = new GoogleAuthProvider();
 import "../style.scss";
 import { useNavigate } from 'react-router-dom';
@@ -38,10 +38,10 @@ function Register() {
                 displayName: userName
             })
             navigate("/");
-            // postUserData({
-            //     email: email,
-            //     name: userName,
-            // })
+            postUserData({
+                email: email,
+                name: userName,
+            })
             console.log(userData);
         } catch (error) {
             setErrorCode(error.code);
@@ -50,6 +50,10 @@ function Register() {
     const signInWithGoogle = async () => {
         try {
             const user = await signInWithPopup(auth, provider)
+            postUserData({
+                email: email,
+                name: userName,
+            })
             navigate("/");
         } catch (error) {
             setErrorCode(error.code);

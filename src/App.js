@@ -16,7 +16,6 @@ import { auth } from "./firebase/Firebase";
 import { onAuthStateChanged } from 'firebase/auth';
 import Registeration from "./pages/Registeration/registeration";
 import Profile from "./pages/profilePage/Profile";
-import { postUserData } from './firebase/FireStoreApi';
 
 
 export default function App() {
@@ -39,12 +38,6 @@ export default function App() {
                         displayName: userAuth.displayName,
                     })
                 );
-                postUserData({
-                    email: userAuth.email,
-                    name: userAuth.displayName,
-                    uid: userAuth.uid
-                })
-
             } else {
                 dispatch(Logout());
             }
