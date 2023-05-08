@@ -98,7 +98,7 @@ function Profile() {
                                                 <span className='heading' >  Gender :  </span>   <span className='about'  > {currentuser?.Gender}</span>
                                             </div>}
                                         {currentuser?.age &&
-                                            <div className='basicdetails'>
+                                            <div className='age'>
                                                 Age :  <span className='about'  > {currentuser?.age}</span>
                                             </div>}
                                         {currentuser?.aboutMe &&
