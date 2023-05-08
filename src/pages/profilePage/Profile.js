@@ -4,7 +4,7 @@ import { getCurrentUser } from '../../firebase/FireStoreApi';
 import EditProfile from './EditProfile';
 import { HiOutlinePencil } from "react-icons/hi";
 import { getCurrentUser } from '../../firebase/FireStoreApi';
-import UploadImg from "./UploadImage"
+import {UploadImg} from "./UploadImage"
 import { UploadBackgroundImg } from "./UploadBgImg"
 import Img from "../../components/lazyLoadImage/Img"
 import LogoutBtn from "../../pages/LogoutBtn";
