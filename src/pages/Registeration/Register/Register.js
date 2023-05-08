@@ -1,10 +1,16 @@
 import React, { useState } from 'react'
 import { BsGoogle } from "react-icons/bs";
 import { auth } from "../../../firebase/Firebase"
+//import {collection ,addDoc} from "firebase/firestore"
 import { createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper"
+//import { postUserData } from '../../../firebase/FireStoreApi';
 const provider = new GoogleAuthProvider();
 import "../style.scss";
+import { useNavigate } from 'react-router-dom';
+//import { useSelector} from "react-redux";
+
+
 
 function Register() {
     const [Form, setForm] = useState({
@@ -12,21 +18,31 @@ function Register() {
         email: "",
         password: "",
     });
+    const navigate = useNavigate();
+
+    //  const { user } = useSelector((state) => state.user);
+
+    //const collectionRef = collection(Firestore ,'user');
+
     const [localError, setLocalError] = useState({});
-    console.log(localError);
     const [ErrorCode, setErrorCode] = useState();
     const { userName, email, password } = Form;
     const signUpHandler = async () => {
        
         if (!userName || !email || !password) return;
         try {
-            const user = await createUserWithEmailAndPassword(auth,
+            const userData = await createUserWithEmailAndPassword(auth,
                 email,
                 password);
             await updateProfile(auth.currentUser, {
                 displayName: userName
             })
-            console.log(user);
+            navigate("/");
+            // postUserData({
+            //     email: email,
+            //     name: userName,
+            // })
+            console.log(userData);
         } catch (error) {
             setErrorCode(error.code);
         }
@@ -34,7 +50,7 @@ function Register() {
     const signInWithGoogle = async () => {
         try {
             const user = await signInWithPopup(auth, provider)
-            console.log(user);
+            navigate("/");
         } catch (error) {
             setErrorCode(error.code);
         }
@@ -116,7 +132,7 @@ function Register() {
                             <div className='error'>{localError.password}</div>
                             <div className='error'>{ErrorCode}</div>
                             <div class="button-wrapper">
-                                <button type="submit" class="custom-button" onClick={signUpHandler} >
+                                <button type="submit" className="custom-button" onClick={signUpHandler} >
                                     Sign IN
                                 </button>
                             </div>

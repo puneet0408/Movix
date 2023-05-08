@@ -4,12 +4,15 @@ import "../style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper"
 import { auth } from '../../../firebase/Firebase';
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
+
 const provider = new GoogleAuthProvider();
 function Login() {
     const [FormData, setFormData] = useState({
         email: "",
         password: ""
     })
+    const navigate = useNavigate();
     const { email, password } = FormData;
     const [localError, setLocalError] = useState({});
     const [ErrorCode, setErrorCode] = useState();
@@ -34,6 +37,7 @@ function Login() {
         } catch (error) {
             setErrorCode(error.code);
         }
+        navigate("/")
     }
     const signInWithGoogle = async () => {
         try {

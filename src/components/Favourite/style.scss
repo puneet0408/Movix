@@ -1,0 +1,14 @@
+.Favcontainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 23333;
+    color: #fff;
+    .heartBlank{
+        font-size: 3.1rem;
+    }
+    .heartfill {
+        color: var(--pink);
+        font-size: 3.1rem;
+    }
+}

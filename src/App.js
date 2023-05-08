@@ -15,17 +15,22 @@ import { User, Logout } from "./store/UserAuth";
 import { auth } from "./firebase/Firebase";
 import { onAuthStateChanged } from 'firebase/auth';
 import Registeration from "./pages/Registeration/registeration";
+import Profile from "./pages/profilePage/Profile";
+import { postUserData } from './firebase/FireStoreApi';
+
 
 export default function App() {
     const dispatch = useDispatch();
     const { user } = useSelector((state) => state.user);
     console.log(user);
-    //const { url } = useSelector((state) => state.home);
+
+
     // onAuthStateChanged recive data of user from firebase if user is login
     useEffect(() => {
         onAuthStateChanged(auth, (userAuth) => {
             if (userAuth) {
-                localStorage.setItem( 'user', userAuth.uid)
+                localStorage.setItem('user', userAuth.uid)
+                localStorage.setItem('email', userAuth.email)
                 // user is logged in, send the user's details to redux, store the current user in the state
                 dispatch(
                     User({
@@ -34,6 +39,12 @@ export default function App() {
                         displayName: userAuth.displayName,
                     })
                 );
+                postUserData({
+                    email: userAuth.email,
+                    name: userAuth.displayName,
+                    uid: userAuth.uid
+                })
+
             } else {
                 dispatch(Logout());
             }
@@ -78,6 +89,7 @@ export default function App() {
                     <Route path="/search/:query" element={<SearchResult />} />
                     <Route path="/explore/:mediaType" element={<Explore />} />
                     <Route path="*" element={<PageNotFound />} />
+                    <Route path="/profile" element={<Profile />} />
                 </Routes>
             }
             <Footer />

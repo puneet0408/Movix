@@ -1,0 +1,241 @@
+@import "../../mixins.scss";
+
+
+.profileContainer {
+    width: 100%;
+    background-color: var(--black);
+    padding-top: 100px;
+    margin-bottom: 50px;
+
+    .backdrop-img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.4;
+        overflow: hidden;
+
+        .addbgIcon {
+            position: absolute;
+            z-index: 3;
+            right: 0;
+            margin-top: 5rem;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 20px;
+            font-size: 1.5rem;
+
+            label {
+                color: #000;
+                margin: .5rem 0;
+                padding: .3rem;
+                background-color: #fff;
+            }
+        }
+
+        .lazy-load-image-background {
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+
+    .opacity-layer {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(180deg,
+                rgba(4, 21, 45, 0) 0%,
+                #04152d 59.17%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        @include md {
+            height: 400px;
+        }
+    }
+
+    .bgImgContainer {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+        color: white;
+
+        .addbgIcon {
+            font-size: 3rem;
+
+            .submitbtn {
+                display: block;
+                padding: .5rem;
+                border-radius: 1rem;
+            }
+        }
+
+    }
+
+    .content {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 25px;
+
+        @include md {
+            gap: 50px;
+            flex-direction: row;
+        }
+
+        .left {
+            flex-shrink: 0;
+
+            .profilePic {
+                width: 100%;
+                display: block;
+                border-radius: 12px;
+
+                @include md {
+                    max-width: 350px;
+                }
+
+                .addIcon {
+                    position: absolute;
+                    z-index: 3;
+                    left: 0;
+
+                    label {
+                        color: #000;
+                        margin: .5rem 0;
+                        padding: .3rem;
+                        background-color: #fff;
+                    }
+                }
+            }
+
+            .addImageContainer {
+                width: 15rem;
+                height: 25rem;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                color: white;
+                border: 1px solid white;
+                border-radius: 12px;
+
+                @include md {
+                    max-width: 350px;
+                }
+
+                .addIcon {
+                    font-size: 5rem;
+
+                    .submitbtn {
+                        display: block;
+                        padding: .5rem;
+                        border-radius: 1rem;
+                    }
+                }
+
+            }
+
+        }
+
+        .right {
+            width: 100%;
+
+            .Container {
+                display: flex;
+                width: 90%;
+                flex-direction: row;
+                justify-content: space-between;
+
+                .basicDetailContainer {
+                    .name {
+                        color: #fff;
+                        font-size: 28px;
+                        line-height: 40px;
+
+                        @include md {
+                            font-size: 34px;
+                            line-height: 44px;
+                        }
+                    }
+
+                    .email {
+                        font-size: 16px;
+                        line-height: 24px;
+                        margin-bottom: 15px;
+                        font-style: italic;
+                        opacity: 0.6;
+                        color: #fff;
+
+                        @include md {
+                            font-size: 20px;
+                            line-height: 28px;
+                        }
+                    }
+
+                    .gender {
+                        color: #fff;
+                        margin-bottom: 25px;
+
+                        .heading {
+                            font-size: 24px;
+                            margin-bottom: 10px;
+                        }
+                    }
+
+                    .aboutMe {
+                        color: #fff;
+                        font-size: 16px;
+                        line-height: 24px;
+                        margin-bottom: 15px;
+                        font-style: italic;
+                        opacity: 0.5;
+
+                        @include md {
+                            font-size: 20px;
+                            line-height: 28px;
+                        }
+                    }
+                }
+
+                .edit_btn {
+                    border-radius: 50%;
+                    padding: 10px;
+                    font-size: 30px;
+                }
+
+                .logoutBtn {
+                    text-align: center;
+                    width: 100px;
+                    height: 50px;
+                    background: var(--gradient);
+                    color: #fff;
+                    outline: 0;
+                    border-radius: 30;
+                    font-size: 10px;
+                    cursor: pointer;
+
+                    @include md {
+                        width: 100px;
+                        height: 60px;
+                        font-size: 20px;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+}

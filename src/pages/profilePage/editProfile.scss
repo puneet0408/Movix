@@ -1,0 +1,76 @@
+@import "../../mixins.scss";
+
+.editPage{
+    width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
+.formContainer{
+   width: 100%;
+
+    .profile_edit_inputs{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        label{
+            color: #fff;
+            margin: .5rem 0;
+        }
+        .common-input{
+            width: calc(100% - 400px);
+            height: 50px;
+            background-color: #fff;
+            outline: 0;
+            border: 0;
+            border-radius: 30px;
+            padding: 0 15px;
+            font-size: 14px;
+        }
+        .common-textArea{
+            width: calc(100% - 400px);
+            height: 70px;
+            background-color: #fff;
+            outline: 0;
+            border: 0;
+            border-radius: 30px;
+            padding: 0 15px;
+            font-size: 14px;
+            resize: none;
+            border-radius: 20px;
+        }
+    }
+    .save_btn{
+        width: 100px;
+        height: 50px;
+        background: var(--gradient);
+        color: #fff;
+        outline: 0;
+        border-radius: 30;
+        font-size: 10px;
+        cursor: pointer;
+
+        @include md {
+            width: 150px;
+            height: 60px;
+            font-size: 30px;
+        }
+    }
+}
+.edit_btn{
+    width: 100px;
+    height: 50px;
+    background: var(--gradient);
+    color: #fff;
+    outline: 0;
+    border-radius: 30;
+    font-size: 10px;
+    cursor: pointer;
+
+    @include md {
+        width: 150px;
+        height: 60px;
+        font-size: 20px;
+    }
+}
+}

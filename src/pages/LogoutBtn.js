@@ -18,15 +18,15 @@ function LogoutBtn() {
  
   return (
     <div className='loginForm' >
-      <button onClick={authSignOut} style={{
+      <p onClick={authSignOut} style={{
+        width:"100%",
+        height:"100%",
         background: "transparent",
         border: "none",
-        width: "20rem",
-        height: "100%",
         color: "#fff",
         fontSize: "20px",
-        textAlign: "start"
-      }} >Logout</button>
+        textAlign: "center"
+      }} >Logout</p>
     </div>
   )
 }

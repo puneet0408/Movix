@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useMemo} from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import Avtar from "../../assets/avatar.png";
@@ -8,7 +8,7 @@ import "./Style.scss";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import logo from "../../assets/movix-logo.svg";
 import { useSelector } from "react-redux";
-import LogoutBtn from "../../pages/LogoutBtn";
+import { getCurrentUser } from '../../firebase/FireStoreApi';
 
 const Header = () => {
     const [show, setShow] = useState("top");
@@ -17,14 +17,19 @@ const Header = () => {
     const [profileMenu, setProfileMenu] = useState(false);
     const [query, setQuery] = useState("");
     const [showSearch, setShowSearch] = useState("");
+    const [currentuser, setCurrentUser] = useState({});
     const navigate = useNavigate();
     const location = useLocation();
     const { user } = useSelector((state) => state.user);
-  
+
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location]);
+
+    useMemo(() => {
+        getCurrentUser(setCurrentUser);
+    }, []);
 
     const controlNavbar = () => {
         if (window.scrollY > 200) {
@@ -54,16 +59,15 @@ const Header = () => {
             }, 1000);
         }
     };
+    const openProfilePage = () => {
+        navigate('/profile')
+    }
+
     const openSearch = () => {
         setMobileMenu(false);
         setShowSearch(true);
         setProfileMenu(false)
     };
-    const openProfileMenu = () => {
-        setProfileMenu(!profileMenu)
-        setMobileMenu(false);
-        setShowSearch(false);
-    }
     const openMobileMenu = () => {
         setMobileMenu(true);
         setShowSearch(false);
@@ -99,7 +103,10 @@ const Header = () => {
                             <HiOutlineSearch onClick={openSearch} />
                         </li>
                         <li className="menuItem ProfilePicHeader" >
-                            <img src={Avtar} alt="profileImg" onClick={openProfileMenu} />
+                        {currentuser?.imageLink ?
+                                <img src={currentuser?.imageLink} alt="profileImg" onClick={openProfilePage} />
+                                :
+                                <img src={Avtar} alt="profileImg" onClick={openProfilePage} />}
                         </li>
                     </ul>
                 }
@@ -107,7 +114,11 @@ const Header = () => {
                     <div className="mobileMenuItems">
                         <HiOutlineSearch onClick={openSearch} />
                         <div className=" ProfilePicHeader" >
-                            <img src={Avtar} alt="profileImg" onClick={openProfileMenu} />
+                            {currentuser?.imageLink ?
+                                <img src={currentuser?.imageLink} alt="profileImg" onClick={openProfilePage} />
+                                :
+                                <img src={Avtar} alt="profileImg" onClick={openProfilePage} />}
+
                         </div>
                         {mobileMenu ? (
                             <VscChromeClose onClick={() => setMobileMenu(false)} />
@@ -132,16 +143,6 @@ const Header = () => {
                             />
                         </div>
                     </ContentWrapper>
-                </div>
-            )}
-            {profileMenu && (
-                <div className="profileMenu">
-                    <div className="profileBtn profileMenuitem" >
-                   User : {user.displayName}
-                    </div>
-                    <div className="Logout profileMenuitem" onClick={openProfileMenu}  >
-                        <LogoutBtn />
-                    </div>
                 </div>
             )}
         </header>
