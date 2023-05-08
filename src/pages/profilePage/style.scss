@@ -193,14 +193,27 @@
                             margin-bottom: 10px;
                         }
                     }
-
-                    .aboutMe .age {
+                    .age{
                         color: #fff;
                         font-size: 16px;
                         line-height: 24px;
                         margin-bottom: 15px;
                         font-style: italic;
-                        opacity: 0.5;
+                        opacity: 0.7;
+
+                        @include md {
+                            font-size: 20px;
+                            line-height: 28px;
+                        }
+                    }
+
+                    .aboutMe{
+                        color: #fff;
+                        font-size: 16px;
+                        line-height: 24px;
+                        margin-bottom: 15px;
+                        font-style: italic;
+                        opacity: 0.6;
 
                         @include md {
                             font-size: 20px;
