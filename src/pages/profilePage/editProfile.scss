@@ -18,7 +18,7 @@ justify-content: space-between;
             margin: .5rem 0;
         }
         .common-input{
-            width: calc(100% - 400px);
+            width: 250px;
             height: 50px;
             background-color: #fff;
             outline: 0;
@@ -27,8 +27,12 @@ justify-content: space-between;
             padding: 0 15px;
             font-size: 14px;
         }
-        .common-textArea{
+        
+        @include sm {
             width: calc(100% - 400px);
+        }
+        .common-textArea{
+            width: 250;
             height: 70px;
             background-color: #fff;
             outline: 0;
@@ -38,6 +42,9 @@ justify-content: space-between;
             font-size: 14px;
             resize: none;
             border-radius: 20px;
+        }
+        @include sm {
+            width: calc(100% - 400px);
         }
     }
     .save_btn{
